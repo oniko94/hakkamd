@@ -12,42 +12,24 @@ const Core = {
      */
     parseMarkdown(char, line) {
         const num = helpers.isNumeric(char) ? char : false;
-        switch (char) {
-            case '#':
-                return BasicTags.parseHeading(line);
-                break;
-            case '-':
-            case num:
-                return BasicTags.parseList(line, isNumeric(char));
-                break;
-            case '!':
-                return MediaTags.parseImg(line);
-                break;
-            case '*':
-                return FormatTags.parseBold(line);
-                break;
-            case '_':
-                return FormatTags.parseItalic(line);
-                break;
-            case '[':
-                return MediaTags.parseLink(line);
-                break;
-            case '>':
-                return FormatTags.parseQuote(line);
-                break;
-            case '~':
-                return FormatTags.parseStrikethru(line);
-                break;
-            case '@':
-                return FormatTags.parseSpoiler(line);
-                break;
-            case '`':
-                return FormatTags.parseCode(line);
-                break;
-            default:
-                return line;
-                break;
+        let tags = {
+            '#': BasicTags.parseHeading,
+            '-': BasicTags.parseList,
+            [num]: BasicTags.parseList,
+            '!': MediaTags.parseImg,
+            '*': FormatTags.parseBold,
+            '_': FormatTags.parseItalic,
+            '[': MediaTags.parseLink,
+            '>': FormatTags.parseQuote,
+            '~': FormatTags.parseStrikethru,
+            '@': FormatTags.parseSpoiler,
+            '`': FormatTags.parseCode,
+            'default': BasicTags.parseParagraph
+        };
+        if (char === '-' || num) {
+            return tags[char](line, helpers.isNumeric(char));
         }
+        return (tags[char] || tags['default'])(line);
     },
     /**
      * Builds a valid Markdown string from characters
