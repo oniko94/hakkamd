@@ -1,0 +1,24 @@
+{
+  "name": "hakkamd",
+  "version": "1.0.0",
+  "description": "A tiny and basic Markdown parser for both server and client.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexNikolaiev94/hakkamd.git"
+  },
+  "keywords": [
+    "markdown",
+    "custom",
+    "parser"
+  ],
+  "author": "AlexNikolaiev94 <oleksandr.nikolaiev94@gmail.com> (https://www.linkedin.com/in/onikolaiev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexNikolaiev94/hakkamd/issues"
+  },
+  "homepage": "https://github.com/AlexNikolaiev94/hakkamd#readme"
+}
