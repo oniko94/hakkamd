@@ -80,7 +80,7 @@ const Core = {
                 continue;
             }
             // Whitespace met, store the current word and start processing another
-            if (charArr[i] === ' ') {
+            if (charArr[i] === ' ' || charArr[i] === '\n') {
                 storeWord(word);
                 word = '';
                 continue;
