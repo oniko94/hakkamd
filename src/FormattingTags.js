@@ -12,8 +12,9 @@ const FormattingTags = {
             if (apostrophes >= 3) {
                 template = `<pre>${text.slice(3, -3)}</pre>`;
                 break;
+            } else {
+                template = `<code>${text.slice(1, -1)}</code>`;
             }
-            template = `<code>${text.slice(1, -1)}</code>`;
         }
         return template;
     },
