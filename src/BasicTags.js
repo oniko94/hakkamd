@@ -4,7 +4,7 @@ const BasicTags = {
      * @param h {string} Markdown heading
      * @returns {string} HTML heading
      */
-    parseHeading(h) {
+    Heading(h) {
         let hType = 0;
         while(h.startsWith('#')) {
             h = h.slice(1);
@@ -21,7 +21,7 @@ const BasicTags = {
      * @param ordered {boolean}
      * @returns {string} Ordered or unordered HTML list.
      */
-    parseList(list, ordered=false) {
+    List(list, ordered=false) {
         let result = list.split('\n').map(item => {
             return `<li>${item.slice(2)}</li>`;
         });
@@ -34,7 +34,7 @@ const BasicTags = {
         }
         return result.join('\n');
     },
-    parseParagraph(p) {
+    Paragraph(p) {
         return `<p>${p}</p>`;
     }
 };

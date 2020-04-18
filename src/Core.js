@@ -10,21 +10,21 @@ const Core = {
      * @param line {string} Markdown line
      * @returns {string} HTML
      */
-    parseMarkdown(char, line) {
+    buildHTML(char, line) {
         const num = helpers.isNumeric(char) ? char : false;
         let tags = {
-            '#': BasicTags.parseHeading,
-            '-': BasicTags.parseList,
-            [num]: BasicTags.parseList,
-            '!': MediaTags.parseImg,
-            '*': FormatTags.parseBold,
-            '_': FormatTags.parseItalic,
-            '[': MediaTags.parseLink,
-            '>': FormatTags.parseQuote,
-            '~': FormatTags.parseStrikethru,
-            '@': FormatTags.parseSpoiler,
-            '`': FormatTags.parseCode,
-            'default': BasicTags.parseParagraph
+            '#': BasicTags.Heading,
+            '-': BasicTags.List,
+            [num]: BasicTags.List,
+            '!': MediaTags.Image,
+            '*': FormatTags.Bold,
+            '_': FormatTags.Italic,
+            '[': MediaTags.Link,
+            '>': FormatTags.Blockquote,
+            '~': FormatTags.Strikethrough,
+            '@': FormatTags.Spoiler,
+            '`': FormatTags.Code,
+            'default': BasicTags.Paragraph
         };
         if (char === '-' || num) {
             return tags[char](line, helpers.isNumeric(char));

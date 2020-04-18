@@ -1,8 +1,8 @@
 const FormattingTags = {
-    parseBold(text) {
+    Bold(text) {
         return `<b>${text.slice(1, -1)}</b>`;
     },
-    parseCode(text) {
+    Code(text) {
         let apostrophes = 0,
             template = '';
         while (text.startsWith('`')) {
@@ -18,16 +18,16 @@ const FormattingTags = {
         }
         return template;
     },
-    parseItalic(text) {
+    Italic(text) {
         return `<i>${text.slice(1, -1)}</i>`;
     },
-    parseSpoiler(text) {
+    Spoiler(text) {
         return `<span class="spoiler">${text.slice(1, -1)}</span>`;
     },
-    parseStrikethru(text) {
+    Strikethrough(text) {
         return `<s>${text.slice(1, -1)}</s>`;
     },
-    parseQuote(text) {
+    Blockquote(text) {
         return `<blockquote>${text.slice(1)}</blockquote>`;
     }
 };
