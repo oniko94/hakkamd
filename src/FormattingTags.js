@@ -1,4 +1,7 @@
 const FormattingTags = {
+    Blockquote(text) {
+        return `<blockquote>${text.slice(1)}</blockquote>`;
+    },
     Bold(text) {
         return `<b>${text.slice(1, -1)}</b>`;
     },
@@ -26,9 +29,6 @@ const FormattingTags = {
     },
     Strikethrough(text) {
         return `<s>${text.slice(1, -1)}</s>`;
-    },
-    Blockquote(text) {
-        return `<blockquote>${text.slice(1)}</blockquote>`;
     }
 };
 
