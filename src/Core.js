@@ -11,11 +11,9 @@ const Core = {
      * @returns {string} HTML
      */
     buildHTML(char, line) {
-        const num = helpers.isNumeric(char) ? char : false;
         let tags = {
             '#': BasicTags.Heading,
             '-': BasicTags.List,
-            [num]: BasicTags.List,
             '!': MediaTags.Image,
             '*': FormatTags.Bold,
             '_': FormatTags.Italic,
@@ -26,8 +24,9 @@ const Core = {
             '`': FormatTags.Code,
             'default': BasicTags.Paragraph
         };
-        if (char === '-' || num) {
-            return tags[char](line, helpers.isNumeric(char));
+        let isOrdered = helpers.isOrderedListItem(line);
+        if (isOrdered) {
+            return BasicTags.List(line, isOrdered);
         }
         return (tags[char] || tags['default'])(line);
     },
