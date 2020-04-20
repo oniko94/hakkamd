@@ -4,7 +4,7 @@
   "description": "A tiny and basic Markdown parser for both server and client.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/AlexNikolaiev94/hakkamd/issues"
   },
-  "homepage": "https://github.com/AlexNikolaiev94/hakkamd#readme"
+  "homepage": "https://github.com/AlexNikolaiev94/hakkamd#readme",
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "7.1.1"
+  }
 }
