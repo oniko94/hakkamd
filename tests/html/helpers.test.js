@@ -1,7 +1,7 @@
 const assert = require('assert');
 const { helpers } = require('../../src/html');
 
-describe('Helper functions', function() {
+describe('HTML.helpers', function() {
     describe('separateTextAndURL', function() {
         it('Should break a Markdown piece into text and url', function() {
             const md = '[text](url)';

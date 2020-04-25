@@ -1,7 +1,7 @@
 const assert = require('assert');
 const expect = require('chai').expect;
 const { BasicTags } = require('../../src/html');
-const parse = require('../../src');
+const { parse } = require('../../src');
 
 describe('BasicTags', function() {
     describe('List', function() {

@@ -12,7 +12,6 @@ function processMdOrNum(array, index, word, closingChar) {
     let i = index;
     for (i; i <= array.length -1; ++i) {
         const reachedClosingChar = closingChar !== '' && array[i + 1] === closingChar;
-        // const endsWithWhitespace = helpers.wordEndings.includes(array[i + 1]);
         word += array[i];
         if (reachedClosingChar) {
             word += array[i + 1];
