@@ -2,12 +2,22 @@ const helpers = require('./helpers.js');
 
 const MediaTags = {
     Image(link) {
-        const { text, url } = helpers.separateTextAndURL(link.slice(1));
-        return `<img src="${url}" alt="${text}"/>`;
+        let linkParts;
+        try {
+            linkParts = helpers.separateTextAndURL(link);
+            return `<img src="${linkParts.url}" alt="${linkParts.text}"/>`;
+        } catch (e) {
+            throw e;
+        }
     },
     Link(link) {
-        const { text, url } = helpers.separateTextAndURL(link);
-        return `<a href="${url}">${text}</a>`;
+        let linkParts;
+        try {
+            linkParts = helpers.separateTextAndURL(link);
+            return `<a href="${linkParts.url}">${linkParts.text}</a>`;
+        } catch (e) {
+            throw e;
+        }
     }
 };
 

@@ -3,6 +3,8 @@ const FormatTags = require('./FormattingTags.js');
 const helpers = require('./helpers');
 const MediaTags = require('./MediaTags.js');
 
+const wordEndings = [' ', '\n'];
+
 const Core = {
     /**
      * Parses the Markdown syntax
@@ -28,7 +30,14 @@ const Core = {
         if (isOrdered) {
             return BasicTags.List(line, isOrdered);
         }
-        return (tags[char] || tags['default'])(line);
+        if (tags[char]) {
+            try {
+                return tags[char](line);
+            } catch (e) {
+                return line;
+            }
+        }
+        return tags['default'](line);
     },
     /**
      * Builds a valid Markdown string from characters
@@ -42,9 +51,15 @@ const Core = {
         let i = index;
         for (i; i <= array.length -1; ++i) {
             word += array[i];
-            if (array[i + 1] === closingChar) break;
+            if (closingChar && array[i + 1] === closingChar) {
+                word += array[i + 1];
+                break;
+            }
+            if (closingChar && wordEndings.includes(array[i + 1])) {
+                word += array[i + 1];
+                break;
+            }
         }
-        word += closingChar;
         index = i + 1;
         i = 0;
         return [word, index];
@@ -78,6 +93,12 @@ const Core = {
                 word = '';
                 continue;
             }
+            if (helpers.isNumeric(charArr[i])) {
+                [word, i] = Core.parseWord(charArr, i, word, '');
+                storeWord(word);
+                word = '';
+                continue;
+            }
             // Whitespace met, store the current word and start processing another
             if (charArr[i] === ' ' || charArr[i] === '\n') {
                 storeWord(word);
@@ -86,6 +107,7 @@ const Core = {
             }
             // The line is fully processed, store the last word and finish
             if (i === charArr.length - 1) {
+                word += charArr[i];
                 storeWord(word);
                 word = '';
                 break;
