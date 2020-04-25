@@ -4,7 +4,7 @@
 
 *TODO*:
 
-- [ ] Add tests
+- [x] Add tests
 - [ ] Add build process
 - [ ] Make it available both for Node and browser
 - [ ] Write docs
