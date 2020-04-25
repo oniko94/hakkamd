@@ -15,7 +15,7 @@ function processString(str) {
     // Double-check that it's an actual word.
     const storeWord = (word) => {
         if (word && word !== '') {
-            result.push(word);
+            result.push(word.trim());
         }
     };
 
@@ -34,7 +34,7 @@ function processString(str) {
         // Process a numerical string as a single word regardless of its length
         // Example result: ['6.000.000', 'of', 'selves']
         if (helpers.isNumeric(charArr[i])) {
-            [word, i] = processMdOrNum(charArr, i, word, '');
+            [word, i] = processMdOrNum(charArr, i, word, ' ');
             storeWord(word);
             word = '';
             continue;
