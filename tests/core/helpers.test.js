@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const helpers = require('../../src/core/helpers.js');
 
-describe('Helper functions', function() {
+describe('Core.helpers', function() {
     describe('isNumeric',function() {
         it('Should return true if a number is passed', function() {
             expect(helpers.isNumeric('1')).to.be.true;
