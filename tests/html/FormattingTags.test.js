@@ -1,5 +1,5 @@
 const assert = require('assert');
-const FormattingTags = require('../src/FormattingTags.js');
+const { FormattingTags } = require('../../src/html');
 
 describe('FormattingTags', function() {
     describe('Blockquote', function() {

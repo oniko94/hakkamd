@@ -18,22 +18,9 @@ module.exports = {
         // Test URL part contained in round brackets
         const url = link.match(/\((.*?)\)/);
         if (text && url) {
-            return { text: text[1], url: url[1] };
+            return {text: text[1], url: url[1]};
         }
         throw new InvalidLinkFormatError();
-    },
-    /**
-     * Checks whether the character is numeric
-     * @param char {string}
-     * @returns {boolean}
-     */
-    isNumeric(char) {
-        return !isNaN(parseInt(char, 10));
-    },
-    isOrderedListItem(line) {
-        const isOrderedItem = this.isNumeric(line.charAt(0)) && line.charAt(1) === '.';
-        const isFraction = this.isNumeric(line.charAt(2));
-        return isOrderedItem && !isFraction;
     },
     InvalidLinkFormatError
 };
