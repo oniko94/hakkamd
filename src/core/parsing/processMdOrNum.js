@@ -1,5 +1,3 @@
-const helpers = require('../helpers.js');
-
 /**
  * Parses a Markdown string or numerical string
  * @param array {string[]} An array of characters from the line
@@ -19,7 +17,6 @@ function processMdOrNum(array, index, word, closingChar) {
         }
     }
     index = i + 1;
-    i = 0;
     return [word, index];
 }
 
