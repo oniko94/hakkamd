@@ -13,7 +13,7 @@ const BasicTags = {
             if (hType >= 6) break;
         }
 
-        return `<h${hType}>${h}</h${hType}>`;
+        return `<h${hType}>${h.trim()}</h${hType}>`;
     },
     /**
      * Parses Markdown lists to valid HTML ones.
