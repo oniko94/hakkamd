@@ -21,6 +21,16 @@ describe('Core', function () {
                              '</ul>';
             assert.equal(core.processMarkdownText(md), expected);
         });
+        it('Should transpile correctly lines starting with an escaped character', function () {
+            const md = '\\#test \\#test';
+            const expected = '<p>#test #test</p>';
+            assert.equal(core.processMarkdownText(md), expected);
+        });
+        it('Should transpile correctly lines with escaped characters inside', function () {
+            const md = 'Test \\>test \\* test \\#test \\- test';
+            const expected = '<p>Test >test * test #test - test</p>';
+            assert.equal(core.processMarkdownText(md), expected);
+        });
         it('Should transpile one-line MD text to HTML', function () {
             const md = 'This is a paragraph with *bold*, _italic_ and ~strikethrough~';
             const expected = '<p>This is a paragraph with <b>bold</b> , <i>italic</i> and <s>strikethrough</s></p>';

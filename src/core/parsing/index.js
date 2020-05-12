@@ -1,5 +1,5 @@
-const processMdOrNum = require('./processMdOrNum.js');
+const processWord = require('./processWord.js');
 const processString = require('./processString.js');
 const processLine = require('./processLine.js');
 
-module.exports = { processMdOrNum, processString, processLine };
+module.exports = { processWord, processString, processLine };

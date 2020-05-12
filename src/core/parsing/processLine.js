@@ -30,7 +30,7 @@ function processLine(line, tags) {
         return line;
     } else {
         // Process each word from the string
-        const p = words.map(word => processLine(word, ['*', '_', '[', '>', '@', '~', '`']));
+        const p = words.map(word => processLine(word, ['*', '_', '[', '>', '@', '~', '`', '\\']));
         return output.toHTML(firstChar, p.join(' '));
     }
 }

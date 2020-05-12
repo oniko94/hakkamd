@@ -1,5 +1,5 @@
 const helpers = require('../helpers.js');
-const processMdOrNum = require('./processMdOrNum.js');
+const processWord = require('./processWord.js');
 
 /**
  * Splits a given string into characters to separate Markdown from other words
@@ -26,15 +26,15 @@ function processString(str) {
             // Otherwise close it with the same character
             let closing = charArr[i] === '[' ? ')' : charArr[i];
             // If it's Markdown, we need to save it as a separate word with Markdown characters included
-            [word, i] = processMdOrNum(charArr, i, word, closing);
+            [word, i] = processWord(charArr, i, word, closing);
             storeWord(word);
             word = '';
             continue;
         }
-        // Process a numerical string as a single word regardless of its length
+        // Process a numerical or an escaped string as a single word
         // Example result: ['6.000.000', 'of', 'selves']
-        if (helpers.isNumeric(charArr[i])) {
-            [word, i] = processMdOrNum(charArr, i, word, ' ');
+        if (helpers.isNumeric(charArr[i]) || charArr[i] === '\\') {
+            [word, i] = processWord(charArr, i, word, ' ');
             storeWord(word);
             word = '';
             continue;
