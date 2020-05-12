@@ -6,7 +6,7 @@
  * @param closingChar {string} The last character of a Markdown tag
  * @returns {*[]} Returns a built word and the actual index for the loop
  */
-function processMdOrNum(array, index, word, closingChar) {
+function processWord(array, index, word, closingChar) {
     let i = index;
     for (i; i <= array.length -1; ++i) {
         const reachedClosingChar = closingChar !== '' && array[i + 1] === closingChar;
@@ -20,4 +20,4 @@ function processMdOrNum(array, index, word, closingChar) {
     return [word, index];
 }
 
-module.exports = processMdOrNum;
+module.exports = processWord;

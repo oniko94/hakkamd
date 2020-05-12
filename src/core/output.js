@@ -7,31 +7,18 @@ const html = require('../html');
  * @returns {string} HTML
  */
 function toHTML(char, line) {
-    let tags = {
-        '#': html.BasicTags.Heading,
-        '-': html.BasicTags.List,
-        '!': html.MediaTags.Image,
-        '*': html.FormattingTags.Bold,
-        '_': html.FormattingTags.Italic,
-        '[': html.MediaTags.Link,
-        '>': html.FormattingTags.Blockquote,
-        '~': html.FormattingTags.Strikethrough,
-        '@': html.FormattingTags.Spoiler,
-        '`': html.FormattingTags.Code,
-        'default': html.BasicTags.Paragraph
-    };
     let isOrdered = helpers.isOrderedListItem(line);
     if (isOrdered) {
         return html.BasicTags.List(line, isOrdered);
     }
-    if (tags[char]) {
+    if (html.mdToHTMLMap[char]) {
         try {
-            return tags[char](line);
+            return html.mdToHTMLMap[char](line);
         } catch (e) {
             return line;
         }
     }
-    return tags['default'](line);
+    return html.mdToHTMLMap['default'](line);
 }
 
 function generateHTMLText(textlines) {
