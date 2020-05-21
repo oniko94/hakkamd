@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { parsing } = require('../../src/core');
+import assert from 'assert';
+import { parsing } from '../../src/core';
 
 describe('Core.Parsing', function() {
     describe('processLine', function() {

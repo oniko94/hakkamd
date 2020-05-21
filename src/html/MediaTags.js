@@ -1,9 +1,9 @@
-const helpers = require('./helpers.js');
+import { separateTextAndURL } from "./helpers";
 
 const MediaTags = {
     Image(link) {
         try {
-            const linkParts = helpers.separateTextAndURL(link);
+            const linkParts = separateTextAndURL(link);
             return `<img src="${linkParts.url}" alt="${linkParts.text}"/>`;
         } catch (e) {
             throw e;
@@ -11,7 +11,7 @@ const MediaTags = {
     },
     Link(link) {
         try {
-            const linkParts = helpers.separateTextAndURL(link);
+            const linkParts = separateTextAndURL(link);
             return `<a href="${linkParts.url}">${linkParts.text}</a>`;
         } catch (e) {
             throw e;
@@ -19,4 +19,4 @@ const MediaTags = {
     }
 };
 
-module.exports = MediaTags;
+export default MediaTags;

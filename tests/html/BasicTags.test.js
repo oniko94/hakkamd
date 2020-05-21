@@ -1,7 +1,8 @@
-const assert = require('assert');
-const expect = require('chai').expect;
-const { BasicTags } = require('../../src/html');
-const { parse } = require('../../src');
+import assert from 'assert';
+import { expect } from 'chai';
+import { BasicTags } from '../../src/html';
+import {parse} from '../../src';
+
 
 describe('BasicTags', function() {
     describe('List', function() {

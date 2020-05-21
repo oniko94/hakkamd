@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { helpers } = require('../../src/html');
+import assert from 'assert';
+import { helpers } from '../../src/html';
 
 describe('HTML.helpers', function() {
     describe('separateTextAndURL', function() {

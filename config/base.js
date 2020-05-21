@@ -5,6 +5,7 @@ module.exports = {
     output: {
         library: 'hakkamd',
         libraryTarget: 'umd',
+        globalObject: 'this',
         path: path.resolve(__dirname, '../dist'),
         filename: 'hakkamd.bundle.js'
     },

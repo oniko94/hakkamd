@@ -1,5 +1,5 @@
-const helpers = require('../helpers.js');
-const processWord = require('./processWord.js');
+import * as helpers from "../helpers";
+import processWord from "./processWord";
 
 /**
  * Splits a given string into characters to separate Markdown from other words
@@ -58,4 +58,4 @@ function processString(str) {
     return result;
 }
 
-module.exports = processString;
+export default processString;
