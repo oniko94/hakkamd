@@ -7,8 +7,11 @@
 
 A tiny & basic Markdown engine for both browser and Node.
 
-## Installation
-To include the engine in your application, run `npm i hakkamd`
+## Installation and Usage
+1. `npm i hakkamd`
+2. `const hakkamd = require('hakkamd')`
+/ `import * as hakkamd from 'hakkamd'`
+3. `const html = hakkamd.parse('YOUR MARKDOWN INPUT GOES HERE');`
 
 ## Syntax
 
