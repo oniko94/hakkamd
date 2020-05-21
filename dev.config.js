@@ -7,7 +7,7 @@ module.exports = {
         library: 'hakkamd',
         libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'hakkamd-dev.bundle.js'
+        filename: 'hakkamd.bundle.js'
     },
     devtool: 'eval-source-map'
 };

@@ -2,7 +2,7 @@
   "name": "hakkamd",
   "version": "1.0.0",
   "description": "A tiny and basic Markdown parser for both server and client.",
-  "main": "src/index.js",
+  "main": "dist/hakkamd.bundle.js",
   "scripts": {
     "test": "mocha tests --recursive",
     "build": "webpack --config prod.config.js",
