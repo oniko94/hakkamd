@@ -2,3 +2,4 @@
 /dist/
 /.idea/
 /.nyc_output/
+/coverage/
