@@ -1,6 +1,6 @@
 {
   "name": "hakkamd",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A tiny and basic Markdown parser for both server and client.",
   "main": "dist/hakkamd.bundle.js",
   "scripts": {
@@ -11,8 +11,7 @@
     "prebuild": "rimraf dist",
     "build:prod": "webpack --env=prod",
     "build:dev": "webpack --env=dev",
-    "cz": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "cz": "git-cz"
   },
   "repository": {
     "type": "git",

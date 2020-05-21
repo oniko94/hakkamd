@@ -21,7 +21,6 @@ script:
   - npm test
   - npm run check-coverage
   - npm run report-coverage
-  - npm run build:prod
 
 stages:
   - name: release
@@ -30,7 +29,7 @@ stages:
 jobs:
   include:
     - stage: release
-      script: skip
+      script: npm run build:prod
       deploy:
         provider: script
         skip_cleanup: true
