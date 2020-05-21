@@ -1,3 +1,8 @@
+![Travis (.org)](https://img.shields.io/travis/AlexNikolaiev94/hakkamd)
+[![codecov](https://codecov.io/gh/AlexNikolaiev94/hakkamd/branch/master/graph/badge.svg)](https://codecov.io/gh/AlexNikolaiev94/hakkamd)
+![npm](https://img.shields.io/npm/v/hakkamd)
+![npm](https://img.shields.io/npm/dw/hakkamd)
+![NPM](https://img.shields.io/npm/l/hakkamd)
 # HakkaMD
 
 A tiny & basic Markdown engine for both browser and Node.
