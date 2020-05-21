@@ -4,12 +4,14 @@
   "description": "A tiny and basic Markdown parser for both server and client.",
   "main": "dist/hakkamd.bundle.js",
   "scripts": {
+    "lint": "npx eslint src/",
     "test": "nyc --reporter=lcov mocha tests --recursive --require @babel/register",
     "check-coverage": "nyc check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "prebuild": "rimraf dist",
     "build:prod": "webpack --env=prod",
     "build:dev": "webpack --env=dev",
+    "cz": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -38,6 +40,8 @@
     "babel-loader": "8.1.0",
     "chai": "4.2.0",
     "codecov": "3.7.0",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "7.0.0",
     "ghooks": "2.0.4",
     "mocha": "7.1.1",
     "nyc": "15.0.1",
@@ -51,6 +55,9 @@
   "config": {
     "ghooks": {
       "pre-commit": "npm test && npm run check-coverage"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }

@@ -1,5 +1,5 @@
-import * as helpers from "../helpers";
-import processWord from "./processWord";
+import * as helpers from '../helpers';
+import processWord from './processWord';
 
 /**
  * Splits a given string into characters to separate Markdown from other words

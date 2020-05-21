@@ -1,6 +1,6 @@
-import * as helpers from "../helpers";
-import * as output from "../output";
-import processString from "./processString";
+import * as helpers from '../helpers';
+import * as output from '../output';
+import processString from './processString';
 
 /**
  * Top level parsing of each line

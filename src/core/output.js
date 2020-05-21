@@ -1,4 +1,4 @@
-import * as helpers from "./helpers";
+import * as helpers from './helpers';
 import { BasicTags, mdToHTMLMap } from '../html';
 /**
  * Transpile Markdown line to HTML tag

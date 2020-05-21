@@ -7,16 +7,30 @@ notifications:
   email: true
 node_js:
   - 12
+  - 11
+  - 10
 before_install:
   - npm i -g npm@^6.0.0
 install:
   - npm install
 before_script:
   - npm prune
+
 script:
   - npm test
   - npm run check-coverage
-  - npm run build:prod
-after_success:
   - npm run report-coverage
-  - npm run semantic-release
+
+stages:
+  - name: release
+    if: branch = master
+
+jobs:
+  include:
+    - stage: release
+      deploy:
+        provider: script
+        skip_cleanup: false
+        script:
+          - npm run build:prod
+          - npx semantic-release
