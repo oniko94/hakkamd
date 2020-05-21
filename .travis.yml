@@ -22,15 +22,18 @@ script:
   - npm run report-coverage
 
 stages:
+  - name: build
+    if: branch = master
   - name: release
     if: branch = master
 
 jobs:
   include:
+    - stage: build
+      script: npm run build:prod
     - stage: release
+      script: skip
       deploy:
         provider: script
-        skip_cleanup: false
-        script:
-          - npm run build:prod
-          - npx semantic-release
+        skip_cleanup: true
+        script: npx semantic-release
