@@ -1,15 +1,9 @@
-const path = require('path');
+const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
+const baseConfig = require('./base.js');
 
-module.exports = {
+module.exports = merge(baseConfig, {
     mode: 'production',
-    entry: './src/index.js',
-    output: {
-        library: 'hakkamd',
-        libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'hakkamd.bundle.js'
-    },
     optimization: {
         minimize: true,
         minimizer: [
@@ -26,4 +20,4 @@ module.exports = {
             })
         ]
     }
-};
+});
