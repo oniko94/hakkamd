@@ -17,20 +17,18 @@ before_script:
   - npm prune
 
 script:
+  - npm run lint
   - npm test
   - npm run check-coverage
   - npm run report-coverage
+  - npm run build:prod
 
 stages:
-  - name: build
-    if: branch = master
   - name: release
     if: branch = master
 
 jobs:
   include:
-    - stage: build
-      script: npm run build:prod
     - stage: release
       script: skip
       deploy:
