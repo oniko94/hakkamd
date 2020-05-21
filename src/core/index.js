@@ -1,4 +1,4 @@
-import * as output from "./output";
+import * as output from './output';
 import * as parsing from './parsing';
 
 function processCompleteLine(line) {

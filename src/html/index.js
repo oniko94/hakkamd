@@ -1,7 +1,7 @@
-import BasicTags  from "./BasicTags";
-import FormattingTags from "./FormattingTags";
-import * as helpers from "./helpers";
-import MediaTags from "./MediaTags";
+import BasicTags  from './BasicTags';
+import FormattingTags from './FormattingTags';
+import * as helpers from './helpers';
+import MediaTags from './MediaTags';
 
 const mdToHTMLMap = {
     '#': BasicTags.Heading,
