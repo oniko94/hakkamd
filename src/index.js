@@ -1,12 +1,10 @@
-const core = require('./core');
+import { processMarkdownText } from './core';
 
 /**
  * Entry point of parser
  * @param input {string}
  * @returns {string}
  */
-function parse(input) {
-    return core.processMarkdownText(input);
+export function parse(input) {
+    return processMarkdownText(input);
 }
-
-module.exports = { parse };

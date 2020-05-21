@@ -37,4 +37,4 @@ const FormattingTags = {
     }
 };
 
-module.exports = FormattingTags;
+export default FormattingTags;

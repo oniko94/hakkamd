@@ -1,7 +1,7 @@
-const BasicTags = require('./BasicTags.js');
-const FormattingTags = require('./FormattingTags.js');
-const helpers = require('./helpers.js');
-const MediaTags = require('./MediaTags.js');
+import BasicTags  from "./BasicTags";
+import FormattingTags from "./FormattingTags";
+import * as helpers from "./helpers";
+import MediaTags from "./MediaTags";
 
 const mdToHTMLMap = {
     '#': BasicTags.Heading,
@@ -24,4 +24,4 @@ const mdToHTMLMap = {
     'default': BasicTags.Paragraph
 };
 
-module.exports = { BasicTags, FormattingTags, helpers, mdToHTMLMap, MediaTags };
+export { BasicTags, FormattingTags, helpers, mdToHTMLMap, MediaTags };

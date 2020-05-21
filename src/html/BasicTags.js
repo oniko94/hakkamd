@@ -43,4 +43,4 @@ const BasicTags = {
     }
 };
 
-module.exports = BasicTags;
+export default BasicTags;

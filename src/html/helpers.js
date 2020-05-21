@@ -22,7 +22,7 @@ function separateTextAndURL(link) {
     throw new InvalidLinkFormatError();
 }
 
-module.exports = {
+export {
     separateTextAndURL,
     InvalidLinkFormatError
 };
