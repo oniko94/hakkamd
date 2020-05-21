@@ -24,7 +24,7 @@
     "parser"
   ],
   "files": [
-    "dist",
+    "dist/*",
     "README.md"
   ],
   "author": "AlexNikolaiev94 <oleksandr.nikolaiev94@gmail.com> (https://www.linkedin.com/in/onikolaiev/)",
@@ -54,7 +54,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm test && npm run check-coverage"
+      "pre-commit": "npm run lint && npm test && npm run check-coverage"
     },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
