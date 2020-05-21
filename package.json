@@ -1,21 +1,29 @@
 {
   "name": "hakkamd",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A tiny and basic Markdown parser for both server and client.",
   "main": "dist/hakkamd.bundle.js",
   "scripts": {
-    "test": "mocha tests --recursive --require @babel/register",
+    "test": "nyc mocha tests --recursive --require @babel/register",
+    "check-coverage": "nyc check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
+    "report-coverage": "cat ./.nyc_output/*.json | codecov",
+    "prebuild": "rimraf dist",
     "build:prod": "webpack --env=prod",
-    "build:dev": "webpack --env=dev"
+    "build:dev": "webpack --env=dev",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexNikolaiev94/hakkamd.git"
+    "url": "https://github.com/AlexNikolaiev94/hakkamd.git"
   },
   "keywords": [
     "markdown",
     "custom",
     "parser"
+  ],
+  "files": [
+    "dist",
+    "README.md"
   ],
   "author": "AlexNikolaiev94 <oleksandr.nikolaiev94@gmail.com> (https://www.linkedin.com/in/onikolaiev/)",
   "license": "MIT",
@@ -29,10 +37,20 @@
     "@babel/register": "7.9.0",
     "babel-loader": "8.1.0",
     "chai": "4.2.0",
+    "codecov": "3.7.0",
+    "ghooks": "2.0.4",
     "mocha": "7.1.1",
+    "nyc": "15.0.1",
+    "rimraf": "3.0.2",
+    "semantic-release": "^17.0.7",
     "terser-webpack-plugin": "3.0.1",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.11",
     "webpack-merge": "4.2.2"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test && npm run check-coverage"
+    }
   }
 }
