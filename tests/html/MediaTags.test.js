@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { MediaTags } = require('../../src/html');
+import assert from 'assert';
+import { MediaTags } from '../../src/html';
 
 describe('MediaTags', function() {
     describe('Image', function() {

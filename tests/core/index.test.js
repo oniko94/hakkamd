@@ -1,5 +1,5 @@
-const assert = require('assert');
-const core = require('../../src/core');
+import assert from 'assert';
+import * as core from '../../src/core';
 
 describe('Core', function () {
     describe('processMarkdownText', function () {

@@ -1,6 +1,5 @@
-const assert = require('assert');
-const expect = require('chai').expect;
-const { output } = require('../../src/core');
+import assert from 'assert';
+import { output } from '../../src/core';
 
 describe('Core.Output', function() {
    describe('toHTML', function() {

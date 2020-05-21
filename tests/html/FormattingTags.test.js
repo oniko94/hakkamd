@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { FormattingTags } = require('../../src/html');
+import assert from 'assert';
+import { FormattingTags } from '../../src/html';
 
 describe('FormattingTags', function() {
     describe('Blockquote', function() {

@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
-const helpers = require('../../src/core/helpers.js');
+import { expect } from 'chai';
+import * as helpers from "../../src/core/helpers";
 
 describe('Core.helpers', function() {
     describe('isNumeric',function() {
