@@ -1,5 +1,5 @@
-const processWord = require('./processWord.js');
-const processString = require('./processString.js');
-const processLine = require('./processLine.js');
+import processLine from "./processLine";
+import processString from "./processString";
+import processWord from "./processWord";
 
-module.exports = { processWord, processString, processLine };
+export { processWord, processString, processLine };

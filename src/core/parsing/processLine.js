@@ -1,6 +1,6 @@
-const helpers = require('../helpers.js');
-const output = require('../output.js');
-const processString = require('./processString.js');
+import * as helpers from "../helpers";
+import * as output from "../output";
+import processString from "./processString";
 
 /**
  * Top level parsing of each line
@@ -35,4 +35,4 @@ function processLine(line, tags) {
     }
 }
 
-module.exports = processLine;
+export default processLine;

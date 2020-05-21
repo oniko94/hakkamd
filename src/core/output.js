@@ -1,5 +1,5 @@
-const helpers = require('./helpers.js');
-const html = require('../html');
+import * as helpers from "./helpers";
+import { BasicTags, mdToHTMLMap } from '../html';
 /**
  * Transpile Markdown line to HTML tag
  * @param char {string} First character of the MD line
@@ -9,20 +9,20 @@ const html = require('../html');
 function toHTML(char, line) {
     let isOrdered = helpers.isOrderedListItem(line);
     if (isOrdered) {
-        return html.BasicTags.List(line, isOrdered);
+        return BasicTags.List(line, isOrdered);
     }
-    if (html.mdToHTMLMap[char]) {
+    if (mdToHTMLMap[char]) {
         try {
-            return html.mdToHTMLMap[char](line);
+            return mdToHTMLMap[char](line);
         } catch (e) {
             return line;
         }
     }
-    return html.mdToHTMLMap['default'](line);
+    return mdToHTMLMap['default'](line);
 }
 
 function generateHTMLText(textlines) {
     return textlines.join('\n');
 }
 
-module.exports = { toHTML, generateHTMLText };
+export { toHTML, generateHTMLText };

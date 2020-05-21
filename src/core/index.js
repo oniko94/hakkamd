@@ -1,5 +1,5 @@
-const parsing = require('./parsing');
-const output = require('./output.js');
+import * as output from "./output";
+import * as parsing from './parsing';
 
 function processCompleteLine(line) {
     line = parsing.processLine(line, ['#', '-', '!', '>', '`']);
@@ -15,4 +15,4 @@ function processMarkdownText(input) {
     return output.generateHTMLText(processedLines);
 }
 
-module.exports = { output, parsing, processMarkdownText };
+export { output, parsing, processMarkdownText };

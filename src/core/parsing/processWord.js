@@ -20,4 +20,4 @@ function processWord(array, index, word, closingChar) {
     return [word, index];
 }
 
-module.exports = processWord;
+export default processWord;
